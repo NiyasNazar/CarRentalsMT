@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="fontType" format="enum">
+        <enum name="light" value="0" />
+        <enum name="normal" value="1" />
+        <enum name="bold" value="2" />
+    </attr>
+    <attr name="loaderType" format="enum">
+        <enum name="primaryColor" value="1" />
+        <enum name="white" value="2" />
+    </attr>
+    <attr name="localeText" format="string" />
+    <attr name="localeHint" format="string" />
+    <attr name="isMandatory" format="boolean" />
+    <declare-styleable name="CustomTextView">
+        <attr name="fontType" />
+        <attr name="localeText" />
+        <attr name="isMandatory" />
+    </declare-styleable>
+    <declare-styleable name="CustomEditText">
+        <attr name="fontType" />
+        <attr name="localeText" />
+        <attr name="localeHint" />
+        <attr name="isMandatory" />
+    </declare-styleable>
+    <declare-styleable name="CustomTextInputLayout">
+        <attr name="localeHint" />
+        <attr name="isMandatory" />
+    </declare-styleable>
+    <declare-styleable name="CustomButton">
+        <attr name="fontType" />
+        <attr name="localeText" />
+    </declare-styleable>
+    <declare-styleable name="CustomCheckBox">
+        <attr name="fontType" />
+        <attr name="localeText" />
+        <attr name="isMandatory" />
+    </declare-styleable>
+    <declare-styleable name="ProgressLoader">
+        <attr name="loaderType" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchableSpinners">
+        <attr name="closeText" format="string" />
+        <attr name="dialogTitle" format="string" />
+        <attr name="showHint" format="boolean" />
+
+    </declare-styleable>
+    <declare-styleable name="BadgeTextView">
+
+        <attr name="android:background" />
+
+        <attr name="badge_circle_threshold" format="integer" />
+        <attr name="badge_count" format="integer" />
+        <attr name="badge_max_number" format="integer" />
+
+        <attr name="badge_round_corner_ratio" format="float"/>
+
+        <attr name="badge_padding_horizontal" format="dimension" />
+        <attr name="badge_padding_vertical" format="dimension" />
+
+        <attr name="badge_border_width" format="dimension" />
+        <attr name="badge_border_color" format="color" />
+
+        <attr name="badge_shadow_radius" format="dimension" />
+        <attr name="badge_shadow_offset_x" format="dimension" />
+        <attr name="badge_shadow_offset_y" format="dimension" />
+        <attr name="badge_shadow_color" format="color" />
+
+        <attr name="debug" format="boolean" />
+
+    </declare-styleable>
+
+</resources>

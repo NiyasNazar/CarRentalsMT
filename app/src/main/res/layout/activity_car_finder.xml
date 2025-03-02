@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.pas.carrentalsmt.ui.find_car.FindCarViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!-- Top Image covering 40% of the screen -->
+        <ImageView
+            android:id="@+id/topImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/car_bg"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/black"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.62"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/TopCornersOnly">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="15dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:id="@+id/layt_select"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_return"
+                        android:checked="true"
+                        android:text="Same drop-off location"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_pickup"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border"
+                    android:hint="Pick-up location"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="5dp"
+                    app:boxBackgroundMode="none"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    android:onClick="@{()->viewModel.actionSearchKayak()}"
+
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxStrokeColor="@color/hintcolor"
+                    app:boxStrokeWidth="1dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHint"
+                    app:hintTextColor="@color/hintcolor"
+                    app:layout_constraintTop_toBottomOf="@+id/layt_select">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/et_pickup_location"
+                        android:layout_height="35dp"
+                        android:onClick="@{()->viewModel.actionPickupLocation()}"
+
+                        android:focusableInTouchMode="false"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:cursorVisible="false"
+                        android:imeOptions="actionSearch"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="@={viewModel.pickupLocation}"
+                        android:paddingVertical="5dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_drop"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border"
+                    android:hint="Drop-off location"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="5dp"
+                    app:boxBackgroundMode="none"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxStrokeColor="@color/hintcolor"
+                    app:boxStrokeWidth="1dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHint"
+                    app:hintTextColor="@color/hintcolor"
+                    app:layout_constraintTop_toBottomOf="@+id/til_pickup">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:id="@+id/et_drop_location"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="@={viewModel.dropoffLocation}"
+                        android:onClick="@{()->viewModel.actionDropLocation()}"
+
+                        android:focusableInTouchMode="false"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:cursorVisible="false"
+                        android:paddingVertical="5dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintTop_toBottomOf="@id/til_drop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <!-- Pick-up Date -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_pickup_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@drawable/rounded_border"
+                        android:hint="Pick-up Date"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="5dp"
+
+                        app:boxBackgroundMode="none"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:boxStrokeColor="@color/hintcolor"
+                        app:boxStrokeWidth="1dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHint"
+                        app:hintTextColor="@color/hintcolor"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/til_dropoff_date"
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/et_pickup_date"
+                            android:layout_height="35dp"
+                            android:ellipsize="end"
+                            android:focusable="false"
+                            android:onClick="@{()->viewModel.actionPickupDate()}"
+
+                            android:focusableInTouchMode="false"
+                            android:inputType="none"
+                            android:maxLines="1"
+                            android:cursorVisible="false"
+                            android:drawableRight="@drawable/ic_calendar"
+                            android:fontFamily="@font/nunito_bold"
+                            android:paddingVertical="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Drop-off Date -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_dropoff_date"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@drawable/rounded_border"
+                        android:hint="Drop-off Date"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="5dp"
+
+                        app:boxBackgroundMode="none"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:boxStrokeColor="@color/hintcolor"
+                        app:boxStrokeWidth="1dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHint"
+                        app:hintTextColor="@color/hintcolor"
+                        app:layout_constraintStart_toEndOf="@id/til_pickup_date"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                       >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:cursorVisible="false"
+                            android:id="@+id/et_drop_off_date"
+                            android:onClick="@{()->viewModel.actionDropoffDate()}"
+
+                            android:drawableRight="@drawable/ic_calendar"
+                            android:ellipsize="end"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:inputType="none"
+                            android:maxLines="1"
+                            android:fontFamily="@font/nunito_bold"
+                            android:paddingVertical="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.pas.carrentalsmt.ui.widgets.CustomButton
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/btn_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="@{()->viewModel.actionSearchKayak()}"
+                    android:textAllCaps="false"
+                    app:fontType="bold"
+                    android:text="Search on Kayak"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_rect_button_primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <ProgressBar
+                    android:id="@+id/progress_button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="4dp"
+                    android:indeterminateTint="@color/buttonColor"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_search"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btn_search" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
