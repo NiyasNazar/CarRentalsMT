@@ -24,8 +24,8 @@ When the gradle build and indexing is done, click the **Run** button and run it 
 
 
 ### **Download APK 📥**
-[![Download APK][(https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/your-username/your-repo/releases/download/v1.2.3/app-release.apk)](https://github.com/NiyasNazar/Finance_Tracker/releases/download/v1.0.1/FinanceTracker.apk)
-
+[[![Download APK][(https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/your-username/your-repo/releases/download/v1.2.3/app-release.apk)](https://github.com/NiyasNazar/Finance_Tracker/releases/download/v1.0.1/FinanceTracker.apk)
+](https://github.com/NiyasNazar/CarRentalsMT/releases/download/v1.0.1/CarRental.apk)
 ### **Screenshots 📸**
 ![image](https://github.com/user-attachments/assets/c7bf5805-ee8e-4993-bb88-9ad6b938f731)
 ![image](https://github.com/user-attachments/assets/b11721cd-79bc-457b-b79f-bb02dc38805e)
